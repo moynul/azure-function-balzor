@@ -1,0 +1,247 @@
+﻿@page "/studentPage"
+
+@using Student.UI.Services;
+@using Student.UI.DTOModel;
+@using Student.UI.Data;
+@using System.Web;
+
+@inject Student.UI.Services.IStudentService _studentService;
+@inject IToastService toastService;
+@inject AuthenticationStateProvider GetAuthenticationStateAsync
+@attribute [Microsoft.AspNetCore.Authorization.AllowAnonymous]
+@inject NavigationManager _navigationManager
+@inject IJSRuntime JsRuntime
+
+<h3>Student Management</h3>
+
+<div class="container">
+    <EditForm Model="@student" OnValidSubmit="SaveStudent">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="row">
+                    <div class="col-lg-2"><label for="name">Name: </label></div>
+                    <div class="col-lg-5">
+                        <input type="text" class="form-control" id="name" @bind="student.Name" placeholder="Name">
+                        &nbsp;<ValidationMessage For="@(() => student.Name)" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="row">
+                    <div class="col-lg-2"><label for="name">Address: </label></div>
+                    <div class="col-lg-5">
+                        <input type="text" class="form-control" id="name" @bind="student.Address" placeholder="Address">
+                        &nbsp;<ValidationMessage For="@(() => student.Address)" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="row">
+                    <div class="col-lg-2"><label for="name">roll: </label></div>
+                    <div class="col-lg-5">
+                        <input type="text" class="form-control" id="name" @bind="student.Roll" placeholder="Roll">
+                        &nbsp;<ValidationMessage For="@(() => student.Roll)" />
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="col-lg-12">
+                <div class="row">
+                    <div class="col-lg-2"></div>
+                    <div class="col-lg-5">
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary">Save</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </EditForm>
+    <br />
+    @if (studentList == null)
+    {
+        <p><em>Loading...</em></p>
+    }
+    else
+    {
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>Roll</th>
+                    <th class="text-secondary opacity-7">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var student in studentList)
+                {
+                    <tr>
+                        <td>@student.Id</td>
+                        <td>@student.Name</td>
+                        <td>@student.Address</td>
+                        <td>@student.Roll</td>
+                        <td class="align-middle">
+                            <button type="button" class="btn btn-primary" @onclick="(()=> editData(student))">Edit</button>
+                            <button type="button" class="btn btn-danger" @onclick="(()=> deleteData(student))">Delete</button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    <div>
+        <Pagination ActivePageNumber="@CurrentPage"
+                    TotalPages="@TotalPages"
+                    PageChanged="OnPageChangedAsync"
+                    FirstLinkIcon="IconName.ChevronDoubleLeft"
+                    PreviousLinkIcon="IconName.ChevronLeft"
+                    NextLinkIcon="IconName.ChevronRight"
+                    LastLinkIcon="IconName.ChevronDoubleRight" />
+
+    </div>
+</div>
+
+@code {
+
+    private string LoginMesssage { get; set; }
+
+    public int PageSize { get; set; } = 4;
+    public int TotalPages { get; set; }
+    public int CurrentPage { get; set; }
+    private PaginationModel pagination = new PaginationModel();
+
+    private ApiResponse<PaginationModel<List<StudentDTO>>> response = new ApiResponse<PaginationModel<List<StudentDTO>>>();
+
+    private List<StudentDTO> studentList;
+    private StudentDTO student = new StudentDTO();
+
+    [Parameter]
+    public string ReturnUrl { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        ReturnUrl = "~/" + ReturnUrl;
+
+        var authstate = await GetAuthenticationStateAsync.GetAuthenticationStateAsync();
+        var user = authstate.User;
+        var name = user.Identity?.Name;
+
+        if (name == null)
+        {
+            _navigationManager.NavigateTo($"Identity/Account/Login?returnUrl={ReturnUrl}", forceLoad: true);
+        }
+        else
+        {
+            await LoadData(CurrentPage + 1, PageSize);
+        }
+    }
+    private async Task LoadData(int pageNumber, int pageSize)
+    {
+        response = await _studentService.GetAllAsync("GetStudentAsync?PageNumber=" + (pageNumber) + "&pageSize=" + pageSize);
+        if (response.StatusCode == 200)
+        {
+            studentList = response.Data.item;
+            TotalPages = response.Data.totalPages;
+            CurrentPage = pageNumber;
+        }
+        else if (response.StatusCode == 401)
+        {
+            var newRes = new ApiResponse()
+                {
+                    Status = response.Status,
+                    StatusCode = response.StatusCode,
+                    Message = response.Message
+                };
+            await LoadData(CurrentPage, PageSize);
+            var res = await showMessage(newRes);
+            if (res.StatusCode == 200)
+            {
+                await LoadData(CurrentPage, PageSize);
+            }
+        }
+        else
+        {
+            var newResponse = new ApiResponse()
+                {
+                    Status = response.Status,
+                    StatusCode = response.StatusCode,
+                    Message = response.Message
+                };
+            await showMessage(newResponse);
+        }
+    }
+
+    private async Task editData(StudentDTO guestData)
+    {
+        student = guestData;
+    }
+    private async Task deleteData(StudentDTO guestData)
+    {
+        bool confirmed = await JsRuntime.InvokeAsync<bool>("confirm", "Are you sure?");
+        if (confirmed)
+        {
+            var deleteResponse = await _studentService.DeleteAsync("DeleteStudentAsync/" + guestData.Id);
+            var res = await showMessage(deleteResponse);
+            if (res.StatusCode == 200 && deleteResponse.StatusCode == 401)
+            {
+                await SaveStudent();
+            }
+        }
+        await LoadData(CurrentPage, PageSize);
+    }
+    private async Task OnPageChangedAsync(int newPageNumber)
+    {
+        await Task.Run(() => { CurrentPage = newPageNumber; });
+        await LoadData(CurrentPage, PageSize);
+    }
+    public async Task<ApiResponse> showMessage(ApiResponse apiResponse)
+    {
+        if (apiResponse.StatusCode == 200)
+        {
+            toastService.ShowSuccess(apiResponse.Message);
+        }
+        else
+        {
+            toastService.ShowError(apiResponse.Message);
+        }
+        return apiResponse;
+    }
+    public async Task SaveStudent()
+    {
+        var newResponse = new ApiResponse();
+        if (student.Id == 0)
+        {
+            newResponse = await _studentService.SaveAsync("CreateStudent", student);
+        }
+        else
+        {
+            newResponse = await _studentService.UpdateSaveAsync("UpdateStudentAsync/" + student.Id, student);
+
+        }
+        var res = await showMessage(newResponse);
+        if (res.StatusCode == 200 && newResponse.StatusCode == 401)
+        {
+            await SaveStudent();
+        }
+        student = new StudentDTO();
+        await LoadData(CurrentPage, PageSize);
+    }
+
+    private async Task NavigateTo(string direction)
+    {
+        if (direction == "prev" && CurrentPage != 0)
+            CurrentPage -= 1;
+        if (direction == "next" && CurrentPage != TotalPages - 1)
+            CurrentPage += 1;
+        if (direction == "first")
+            CurrentPage = 0;
+        if (direction == "last")
+            CurrentPage = TotalPages - 1;
+
+        await LoadData(CurrentPage, PageSize);
+    }
+
+}
+    

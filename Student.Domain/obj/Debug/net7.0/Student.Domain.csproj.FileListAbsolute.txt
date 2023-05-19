@@ -1,0 +1,14 @@
+G:\AzureFunction\ToBeUploaded\Student.Domain\Student.Domain\bin\Debug\net7.0\Student.Domain.deps.json
+G:\AzureFunction\ToBeUploaded\Student.Domain\Student.Domain\bin\Debug\net7.0\Student.Domain.dll
+G:\AzureFunction\ToBeUploaded\Student.Domain\Student.Domain\bin\Debug\net7.0\Student.Domain.pdb
+G:\AzureFunction\ToBeUploaded\Student.Domain\Student.Domain\obj\Debug\net7.0\Student.Domain.csproj.AssemblyReference.cache
+G:\AzureFunction\ToBeUploaded\Student.Domain\Student.Domain\obj\Debug\net7.0\Student.Domain.GeneratedMSBuildEditorConfig.editorconfig
+G:\AzureFunction\ToBeUploaded\Student.Domain\Student.Domain\obj\Debug\net7.0\Student.Domain.AssemblyInfoInputs.cache
+G:\AzureFunction\ToBeUploaded\Student.Domain\Student.Domain\obj\Debug\net7.0\Student.Domain.AssemblyInfo.cs
+G:\AzureFunction\ToBeUploaded\Student.Domain\Student.Domain\obj\Debug\net7.0\Student.Domain.csproj.CoreCompileInputs.cache
+G:\AzureFunction\ToBeUploaded\Student.Domain\Student.Domain\obj\Debug\net7.0\Student.Domain.dll
+G:\AzureFunction\ToBeUploaded\Student.Domain\Student.Domain\obj\Debug\net7.0\refint\Student.Domain.dll
+G:\AzureFunction\ToBeUploaded\Student.Domain\Student.Domain\obj\Debug\net7.0\Student.Domain.pdb
+G:\AzureFunction\ToBeUploaded\Student.Domain\Student.Domain\obj\Debug\net7.0\ref\Student.Domain.dll
+G:\AzureFunction\ToBeUploaded\Student.Domain\Student.Domain\bin\Debug\net7.0\Student.Domain.runtimeconfig.json
+G:\AzureFunction\ToBeUploaded\Student.Domain\Student.Domain\obj\Debug\net7.0\Student.Domain.genruntimeconfig.cache

@@ -1,0 +1,77 @@
+{
+  "Files": [
+    {
+      "Id": "G:\\AzureFunction\\ToBeUploaded\\Student.Domain\\Student.UI\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\Student.UI.bundle.scp.css",
+      "PackagePath": "staticwebassets\\Student.UI.bundle.scp.css"
+    },
+    {
+      "Id": "G:\\AzureFunction\\ToBeUploaded\\Student.Domain\\Student.UI\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css"
+    },
+    {
+      "Id": "G:\\AzureFunction\\ToBeUploaded\\Student.Domain\\Student.UI\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "G:\\AzureFunction\\ToBeUploaded\\Student.Domain\\Student.UI\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
+      "PackagePath": "staticwebassets\\css\\open-iconic"
+    },
+    {
+      "Id": "G:\\AzureFunction\\ToBeUploaded\\Student.Domain\\Student.UI\\wwwroot\\css\\open-iconic\\ICON-LICENSE",
+      "PackagePath": "staticwebassets\\css\\open-iconic"
+    },
+    {
+      "Id": "G:\\AzureFunction\\ToBeUploaded\\Student.Domain\\Student.UI\\wwwroot\\css\\open-iconic\\README.md",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\README.md"
+    },
+    {
+      "Id": "G:\\AzureFunction\\ToBeUploaded\\Student.Domain\\Student.UI\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css"
+    },
+    {
+      "Id": "G:\\AzureFunction\\ToBeUploaded\\Student.Domain\\Student.UI\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.eot"
+    },
+    {
+      "Id": "G:\\AzureFunction\\ToBeUploaded\\Student.Domain\\Student.UI\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.otf"
+    },
+    {
+      "Id": "G:\\AzureFunction\\ToBeUploaded\\Student.Domain\\Student.UI\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.svg"
+    },
+    {
+      "Id": "G:\\AzureFunction\\ToBeUploaded\\Student.Domain\\Student.UI\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.ttf"
+    },
+    {
+      "Id": "G:\\AzureFunction\\ToBeUploaded\\Student.Domain\\Student.UI\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.woff"
+    },
+    {
+      "Id": "G:\\AzureFunction\\ToBeUploaded\\Student.Domain\\Student.UI\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "G:\\AzureFunction\\ToBeUploaded\\Student.Domain\\Student.UI\\wwwroot\\favicon.png",
+      "PackagePath": "staticwebassets\\favicon.png"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.Student.UI.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.build.Student.UI.props",
+      "PackagePath": "build\\Student.UI.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildMultiTargeting.Student.UI.props",
+      "PackagePath": "buildMultiTargeting\\Student.UI.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildTransitive.Student.UI.props",
+      "PackagePath": "buildTransitive\\Student.UI.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Student.Functions": {
+      "commandName": "Project",
+       "commandLineArgs": "--port 7298",
+     // "commandLineArgs": "--port 7298 --useHttps --cert $(ProjectDir)\\certificate.pfx --password \"1234\"",
+      "launchBrowser": false
+    }
+  }
+}

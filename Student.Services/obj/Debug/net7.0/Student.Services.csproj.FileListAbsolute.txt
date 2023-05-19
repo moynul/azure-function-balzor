@@ -1,0 +1,15 @@
+G:\AzureFunction\ToBeUploaded\Student.Domain\Student.Services\bin\Debug\net7.0\Student.Services.deps.json
+G:\AzureFunction\ToBeUploaded\Student.Domain\Student.Services\bin\Debug\net7.0\Student.Services.dll
+G:\AzureFunction\ToBeUploaded\Student.Domain\Student.Services\bin\Debug\net7.0\Student.Services.pdb
+G:\AzureFunction\ToBeUploaded\Student.Domain\Student.Services\obj\Debug\net7.0\Student.Services.csproj.AssemblyReference.cache
+G:\AzureFunction\ToBeUploaded\Student.Domain\Student.Services\obj\Debug\net7.0\Student.Services.GeneratedMSBuildEditorConfig.editorconfig
+G:\AzureFunction\ToBeUploaded\Student.Domain\Student.Services\obj\Debug\net7.0\Student.Services.AssemblyInfoInputs.cache
+G:\AzureFunction\ToBeUploaded\Student.Domain\Student.Services\obj\Debug\net7.0\Student.Services.AssemblyInfo.cs
+G:\AzureFunction\ToBeUploaded\Student.Domain\Student.Services\obj\Debug\net7.0\Student.Services.csproj.CoreCompileInputs.cache
+G:\AzureFunction\ToBeUploaded\Student.Domain\Student.Services\obj\Debug\net7.0\Student.Services.dll
+G:\AzureFunction\ToBeUploaded\Student.Domain\Student.Services\obj\Debug\net7.0\refint\Student.Services.dll
+G:\AzureFunction\ToBeUploaded\Student.Domain\Student.Services\obj\Debug\net7.0\Student.Services.pdb
+G:\AzureFunction\ToBeUploaded\Student.Domain\Student.Services\obj\Debug\net7.0\ref\Student.Services.dll
+G:\AzureFunction\ToBeUploaded\Student.Domain\Student.Services\bin\Debug\net7.0\Student.Domain.dll
+G:\AzureFunction\ToBeUploaded\Student.Domain\Student.Services\bin\Debug\net7.0\Student.Domain.pdb
+G:\AzureFunction\ToBeUploaded\Student.Domain\Student.Services\obj\Debug\net7.0\Student.Services.csproj.CopyComplete
